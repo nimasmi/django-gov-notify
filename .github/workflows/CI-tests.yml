@@ -1,4 +1,4 @@
-name: Django Gov Notify
+name: CI tests
 
 on: [push]
 
