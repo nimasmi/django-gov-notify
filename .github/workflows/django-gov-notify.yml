@@ -21,6 +21,8 @@ jobs:
       uses: abatilo/actions-poetry@v2.0.0
       with:
         poetry-version: ${{ matrix.poetry-version }}
+    - name: Install Python packages
+      run: poetry install
     - name: Lint with Black
       run: |
         poetry run black
@@ -33,6 +35,15 @@ jobs:
         poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+        poetry-version: [1.0.10, 1.1.2]
+    steps:
+    - name: Test
       run: |
         poetry run python runtests.py
