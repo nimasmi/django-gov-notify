@@ -34,6 +34,31 @@ jobs:
       run: |
           poetry config virtualenvs.in-project true
           poetry install
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: [build]
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Cache Poetry virtual env
+      uses: actions/cache@v2
+      env:
+          cache-name: cache-poetry-virtualenv
+      with:
+          path: .venv
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}
+    - name: Run image
+      uses: abatilo/actions-poetry@v2.0.0
+      with:
+        poetry-version: ${{ env.poetry-version }}
     - name: Lint with Black
       run: |
         poetry run black
@@ -49,7 +74,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, lint]
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8]
