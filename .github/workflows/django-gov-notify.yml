@@ -2,6 +2,9 @@ name: Django Gov Notify
 
 on: [push]
 
+env:
+  poetry-version: 1.1.2
+
 jobs:
   build:
 
@@ -9,7 +12,6 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8]
-        poetry-version: [1.0.10, 1.1.2]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,11 +25,11 @@ jobs:
           cache-name: cache-poetry-virtualenv
       with:
           path: .venv
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-poetry-${{ matrix.poetry-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}
     - name: Run image
       uses: abatilo/actions-poetry@v2.0.0
       with:
-        poetry-version: ${{ matrix.poetry-version }}
+        poetry-version: ${{ env.poetry-version }}
     - name: Install Python packages
       run: |
           poetry config virtualenvs.in-project true
