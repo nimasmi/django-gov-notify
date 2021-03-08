@@ -23,7 +23,7 @@ jobs:
           cache-name: cache-poetry-virtualenv
       with:
           path: .venv
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ env.python-version }}-poetry-${{ env.poetry-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-poetry-${{ matrix.poetry-version }}-${{ hashFiles('pyproject.toml') }}
     - name: Run image
       uses: abatilo/actions-poetry@v2.0.0
       with:
@@ -53,6 +53,13 @@ jobs:
         python-version: [3.6, 3.7, 3.8]
         poetry-version: [1.0.10, 1.1.2]
     steps:
+    - name: Cache Poetry virtual env
+      uses: actions/cache@v2
+      env:
+          cache-name: cache-poetry-virtualenv
+      with:
+          path: .venv
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-poetry-${{ matrix.poetry-version }}-${{ hashFiles('pyproject.toml') }}
     - name: Test
       run: |
         poetry run python runtests.py
