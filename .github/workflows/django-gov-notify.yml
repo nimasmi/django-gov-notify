@@ -60,6 +60,10 @@ jobs:
       with:
           path: .venv
           key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-poetry-${{ matrix.poetry-version }}-${{ hashFiles('pyproject.toml') }}
+    - name: Run image
+      uses: abatilo/actions-poetry@v2.0.0
+      with:
+        poetry-version: ${{ matrix.poetry-version }}
     - name: Test
       run: |
         poetry run python runtests.py
