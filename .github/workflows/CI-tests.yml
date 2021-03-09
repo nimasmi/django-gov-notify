@@ -25,7 +25,7 @@ jobs:
           cache-name: cache-poetry-virtualenv
       with:
           path: .venv
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
     - name: Run image
       uses: abatilo/actions-poetry@v2.0.0
       with:
@@ -54,7 +54,7 @@ jobs:
           cache-name: cache-poetry-virtualenv
       with:
           path: .venv
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
     - name: Run image
       uses: abatilo/actions-poetry@v2.0.0
       with:
@@ -90,7 +90,7 @@ jobs:
           cache-name: cache-poetry-virtualenv
       with:
           path: .venv
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
     - name: Run image
       uses: abatilo/actions-poetry@v2.0.0
       with:
