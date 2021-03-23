@@ -47,4 +47,4 @@ repos:
     hooks:
       - id: detect-secrets
         args: ["--baseline", ".secrets.baseline"]
-        exclude: .*/tests/.*
+        exclude: .*/tests/.*|poetry.lock
