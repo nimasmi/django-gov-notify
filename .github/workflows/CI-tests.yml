@@ -67,4 +67,4 @@ jobs:
           poetry-version: ${{ env.poetry-version }}
       - name: Test
         run: |
-          poetry run python runtests.py
+          poetry run coverage run -m runtests
