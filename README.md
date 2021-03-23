@@ -1,5 +1,7 @@
 # django-gov-notify, a GOV.UK Notify flavoured Django email backend
 
+![GitHub workflow](https://github.com/nimasmi/django-gov-notify/actions/workflows/CI-tests.yml/badge.svg)
+
 django-gov-notify provides Django integration with the [GOV.UK Notify](https://www.notifications.service.gov.uk/) service for sending emails and SMS messages. [Python Client Documentation](https://docs.notifications.service.gov.uk/python.html).
 
 This is implemented as a custom Django email backend. It presents a similar internal API to standard Django email backends, but with some restrictions:

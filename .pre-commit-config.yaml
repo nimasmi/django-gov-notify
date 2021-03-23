@@ -27,9 +27,9 @@ repos:
           - eslint-plugin-jsx-a11y@6.2.3
           - eslint-plugin-react@7.16.0
           - eslint-plugin-react-hooks@1.7.0
-          - '@babel/core@7.5.0'
-          - '@babel/preset-env@7.5.0'
-          - '@babel/preset-react@7.0.0'
+          - "@babel/core@7.5.0"
+          - "@babel/preset-env@7.5.0"
+          - "@babel/preset-react@7.0.0"
           - babel-eslint@10.0.2
   - repo: https://github.com/prettier/prettier
     rev: 1.18.2
@@ -42,9 +42,9 @@ repos:
         additional_dependencies:
           - stylelint@10.1.0
           - stylelint-config-torchbox@0.5.0
-  - repo: git@github.com:Yelp/detect-secrets
+  - repo: https://github.com/Yelp/detect-secrets
     rev: v0.13.0
     hooks:
       - id: detect-secrets
-        args: ['--baseline', '.secrets.baseline']
+        args: ["--baseline", ".secrets.baseline"]
         exclude: .*/tests/.*

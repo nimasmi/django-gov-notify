@@ -1,0 +1,70 @@
+name: CI tests
+
+on: [push]
+
+env:
+  poetry-version: 1.1.2
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python "3.6"
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.6"
+      - uses: pre-commit/action@v2.0.0
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.6", "3.7", "3.8"]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Cache Poetry virtual env
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ env.poetry-version }}
+      - name: Install Python packages
+        run: |
+          poetry config virtualenvs.in-project true
+          poetry install
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [build, lint]
+    strategy:
+      matrix:
+        python-version: ["3.6", "3.7", "3.8"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Cache Poetry virtual env
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-poetry-virtualenv
+        with:
+          path: .venv
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ env.poetry-version }}
+      - name: Test
+        run: |
+          poetry run python runtests.py

@@ -42,8 +42,5 @@ MEDIA_URL = "http://media.example.com/media/"
 
 SECRET_KEY = "not needed"
 
-# WAGTAIL_SITE_NAME = "wagtail-airtable"
-# BASE_URL = 'http://example.com'
-
 GOVUK_NOTIFY_API_KEY = "not a real API key"
 GOVUK_NOTIFY_PLAIN_EMAIL_TEMPLATE_ID = str(uuid.uuid4())
