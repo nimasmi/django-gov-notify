@@ -31,6 +31,12 @@ $ poetry add django-gov-notify
 
 ## Configuration
 
+In your Django project's settings:
+
+```python
+EMAIL_BACKEND = "django_gov_notify.backends.NotifyEmailBackend"
+```
+
 You will need at least one email template ID, with a plain template:
 
 > Subject: ((subject))  
