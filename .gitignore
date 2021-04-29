@@ -31,3 +31,4 @@ wheels/
 .installed.cfg
 *.egg
 builds/
+poetry.lock
