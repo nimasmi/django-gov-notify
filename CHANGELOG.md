@@ -1,12 +1,12 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 (2021-04-29)
 
 ### Features
 
 - Support and CI tests for Django 3.1 and 3.2
 
-## 0.1.1 (2021-04-29)
+## 0.1.0 (2021-04-29)
 
 ### Features
 
