@@ -15,6 +15,13 @@ This is implemented as a custom Django email backend. It presents a similar inte
 - Preformatted emails are expected to be configured in the service admin dashboard as Markdown templates with placeholders.
 - The email body is interpreted as very limited Markdown. On testing, it seems that variables are not interpreted as markdown, or maybe mangled, e.g. `_test_` was emailed as `*test*`.
 
+## Compatibility
+
+django-gov-notify supports:
+
+- Python 3.6, 3.7, and 3.8
+- Django 2.2, 3.1 and 3.2
+
 ## Installation
 
 Using [pip](https://pip.pypa.io/en/stable/):
