@@ -37,7 +37,7 @@ jobs:
       - name: Cache Poetry virtual env
         uses: actions/cache@v2
         with:
-          path: .venv
+          path: [".venv", "$HOME/.poetry/bin", "$HOME/.poetry/env"]
           key: ${{ runner.os }}-Python-${{ matrix.python-version }}-Django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
       - name: Install Python packages
         run: |
@@ -75,7 +75,7 @@ jobs:
         env:
           cache-name: cache-poetry-virtualenv
         with:
-          path: .venv
+          path: [".venv", "$HOME/.poetry/bin", "$HOME/.poetry/env"]
           key: ${{ runner.os }}-Python-${{ matrix.python-version }}-Django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
       - name: Test
         run: |
