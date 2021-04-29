@@ -38,7 +38,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .venv
-          key: ${{ runner.os }}-python-${{ matrix.python-version }}-django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-Python-${{ matrix.python-version }}-Django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
       - name: Install Python packages
         run: |
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -76,7 +76,7 @@ jobs:
           cache-name: cache-poetry-virtualenv
         with:
           path: .venv
-          key: ${{ runner.os }}-python-${{ matrix.python-version }}-django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
+          key: ${{ runner.os }}-Python-${{ matrix.python-version }}-Django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
       - name: Test
         run: |
           poetry run python -m django --version
