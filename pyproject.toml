@@ -8,6 +8,7 @@ authors = ["Nick Smith <nick.smith@torchbox.com>"]
 python = ">=3.6.1,<3.9"
 django = ">=2.2.12,<4.0"
 notifications-python-client = "5.4.1"
+factory-boy = "~=3.0"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
@@ -15,7 +16,7 @@ isort = "^4.3.21"
 flake8 = "^3.8.2"
 pre-commit = "^2.4.0"
 detect-secrets = "0.13.0"
-factory-boy = "^2.12.0"
+factory-boy = "^3.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
