@@ -21,6 +21,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.6", "3.7", "3.8"]
+        django-version: ["2.2.20", "3.1.8", "3.2"]
 
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +33,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .venv
-          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-$django-${{ matrix.django-version }}-{{ hashFiles('poetry.lock') }}
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
@@ -40,6 +41,7 @@ jobs:
       - name: Install Python packages
         run: |
           poetry config virtualenvs.in-project true
+          poetry add django==${{ matrix.django-version }}
           poetry install
 
   test:
@@ -48,6 +50,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.6", "3.7", "3.8"]
+        django-version: ["2.2.20", "3.1.8", "3.2"]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -60,7 +63,7 @@ jobs:
           cache-name: cache-poetry-virtualenv
         with:
           path: .venv
-          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('poetry.lock') }}
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-django-${{ matrix.django-version }}-${{ hashFiles('poetry.lock') }}
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:

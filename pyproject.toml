@@ -6,7 +6,7 @@ authors = ["Nick Smith <nick.smith@torchbox.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.6.1,<3.9"
-django = "2.2.12"
+django = ">=2.2.12,<4.0"
 notifications-python-client = "5.4.1"
 
 [tool.poetry.dev-dependencies]
