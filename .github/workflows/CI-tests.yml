@@ -2,9 +2,6 @@ name: CI tests
 
 on: [push]
 
-env:
-  poetry-version: 1.1.2
-
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -42,12 +39,10 @@ jobs:
         with:
           path: .venv
           key: ${{ runner.os }}-python-${{ matrix.python-version }}-django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
-      - name: Run image
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ env.poetry-version }}
       - name: Install Python packages
         run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+          source $HOME/.poetry/env
           poetry config virtualenvs.in-project true
           poetry install
           poetry add django==${{ matrix.django-version }}
@@ -82,10 +77,6 @@ jobs:
         with:
           path: .venv
           key: ${{ runner.os }}-python-${{ matrix.python-version }}-django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
-      - name: Run image
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ env.poetry-version }}
       - name: Test
         run: |
           poetry run python -m django --version
