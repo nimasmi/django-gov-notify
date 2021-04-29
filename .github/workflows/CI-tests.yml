@@ -79,5 +79,6 @@ jobs:
           key: ${{ runner.os }}-Python-${{ matrix.python-version }}-Django-${{ matrix.django-version }}-${{ hashFiles('pyproject.toml') }}
       - name: Test
         run: |
+          source $HOME/.poetry/env
           poetry run python -m django --version
           poetry run python runtests.py
