@@ -20,9 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8"]
-        django-version: ["2.2.20", "3.1.8", "3.2"]
-
+        include:
+          - python-version: "3.8"
+            django-version: "2.2.20"
+          - python-version: "3.8"
+            django-version: "3.1.8"
+          - python-version: "3.6"
+            django-version: "3.2"
+          - python-version: "3.7"
+            django-version: "3.2"
+          - python-version: "3.8"
+            django-version: "3.2"
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -49,8 +57,17 @@ jobs:
     needs: [build, lint]
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8"]
-        django-version: ["2.2.20", "3.1.8", "3.2"]
+        include:
+          - python-version: "3.8"
+            django-version: "2.2.20"
+          - python-version: "3.8"
+            django-version: "3.1.8"
+          - python-version: "3.6"
+            django-version: "3.2"
+          - python-version: "3.7"
+            django-version: "3.2"
+          - python-version: "3.8"
+            django-version: "3.2"
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
