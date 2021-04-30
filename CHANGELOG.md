@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Features
+
+- Support and CI tests for Python 3.9
+
 ## 0.2.0 (2021-04-29)
 
 ### Features
