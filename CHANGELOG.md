@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Bug fixes
+
+- Update notifications-python-client; this indirectly fixes a backwards incompatible change in PyJWT
+- Fix the Factory Boy dependency specification
+
 ## 0.2.0 (2021-04-29)
 
 ### Features
