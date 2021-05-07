@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Features
+
+- Support and CI tests for Python 3.9
+
 ### Bug fixes
 
 - Update notifications-python-client; this indirectly fixes a backwards incompatible change in PyJWT
