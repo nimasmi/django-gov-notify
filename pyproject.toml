@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-gov-notify"
-version = "0.3.0"
+version = "0.3.1"
 description = "A GOV.UK Notify flavoured Django email backend"
 authors = ["Nick Smith <nick.smith@torchbox.com>"]
 readme = "README.md"
@@ -14,8 +14,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Topic :: Communications :: Email",
     "Framework :: Django",
-    "Framework :: Django :: 2.2",
-    "Framework :: Django :: 3.1",
     "Framework :: Django :: 3.2",
     "Framework :: Django :: 4.1",
     "Framework :: Django :: 4.2",
@@ -31,15 +29,15 @@ license = "BSD-2-Clause"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-django = ">=2.2.12,<5.0"
-notifications-python-client = "^6.1.0"
+django = ">=3.2,<5.0"
+notifications-python-client = "^8.1.0"
 
 [tool.poetry.dev-dependencies]
-black = "^19.10b0"
-isort = "^4.3.21"
-flake8 = "^3.8.2"
-pre-commit = "^2.4.0"
-detect-secrets = "0.13.0"
+black = "^23.10.1"
+isort = "^5.12.0"
+flake8 = "^5.0.4"
+pre-commit = "^3.5.0"
+detect-secrets = "1.4.0"
 factory-boy = "^3.2.0"
 
 [build-system]
