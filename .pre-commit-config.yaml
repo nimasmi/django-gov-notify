@@ -36,7 +36,7 @@ repos:
     hooks:
       - id: prettier
   - repo: https://github.com/awebdeveloper/pre-commit-stylelint
-    sha: c4c991cd38b0218735858716b09924f8b20e3812
+    rev: c4c991cd38b0218735858716b09924f8b20e3812
     hooks:
       - id: stylelint
         additional_dependencies:
