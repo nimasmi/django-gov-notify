@@ -6,7 +6,7 @@ from django.core.mail.message import EmailMessage
 
 
 class NotifyEmailMessage(EmailMessage):
-    """An email message that knows how to work with GOV.UK Notify templates. """
+    """An email message that knows how to work with GOV.UK Notify templates."""
 
     def __init__(
         self,
