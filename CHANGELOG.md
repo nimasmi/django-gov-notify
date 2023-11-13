@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+### Features
+
+- Support Python 3.10 and Python 3.11
+- Drop support for Python 3.6 and Python 3.7
+- Support Django 4.1 and 4.2
+- Drop support for Django 2.2 and Django 3.1
+
+### Development
+
+- Upgrade pre-commit
+
 ## 0.3.0 (2021-05-07)
 
 ### Features
