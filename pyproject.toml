@@ -26,8 +26,11 @@ classifiers = [
 license = "BSD-2-Clause"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.12"
-django = ">=3.2,<5.0"
+python = ">=3.8,<3.13"
+django = [
+    {version = ">=3.2", python = ">=3.8,<3.13"},
+    {version = ">=5.0", python = ">=3.10,<3.13"},
+]
 notifications-python-client = "^8.1.0"
 
 [tool.poetry.dev-dependencies]
