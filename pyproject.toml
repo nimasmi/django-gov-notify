@@ -39,5 +39,5 @@ detect-secrets = "1.4.0"
 factory-boy = "^3.2.0"
 
 [build-system]
-requires = ["poetry-core>=1.2.0"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
