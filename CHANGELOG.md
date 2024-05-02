@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Features
+
+- Support Python 3.12
+- Support Django 5.0
+
+### Development
+
+- Improve version test matrices to skip testing incompatible combinations
+
 ## 0.4.0 (2023-11-13)
 
 ### Features
