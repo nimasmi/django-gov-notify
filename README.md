@@ -19,8 +19,8 @@ This is implemented as a custom Django email backend. It presents a similar inte
 
 django-gov-notify supports:
 
-- Python 3.8, 3.9, 3.10 and 3.11
-- Django 3.2, 4.1 and 4.2
+- Python 3.9, 3.10, 3.11 and 3.12
+- Django 4.2, 5.0 and 5.1
 
 ## Installation
 

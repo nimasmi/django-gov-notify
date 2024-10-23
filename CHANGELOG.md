@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Fix dependency specification to allow use with combinations of Django 4.2 and Python >= 3.10
+- Update supported versions of Django & Python
 
 ## 0.5.0 (2024-05-02)
 
