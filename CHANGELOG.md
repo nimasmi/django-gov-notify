@@ -1,9 +1,16 @@
 # Changelog
 
-## Unreleased
+## 0.6.0 (2024-10-25)
+
+### Features
+
+- Drop support for Python 3.8
+- Support Django 5.1
+- Drop support for Django 3.2 and Django 4.1
+
+### Development
 
 - Fix dependency specification to allow use with combinations of Django 4.2 and Python >= 3.10
-- Update supported versions of Django & Python
 
 ## 0.5.0 (2024-05-02)
 
