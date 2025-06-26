@@ -20,8 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-        django-version: ["4.2.16", "5.0.9", "5.1.2"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.12"]
+        django-version: ["4.2.16", "5.0.9", "5.1.2", "5.2.3"]
         exclude:
           # Django too new
           - django-version: "5.0.9"
@@ -58,8 +58,8 @@ jobs:
     needs: [build, lint]
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-        django-version: ["4.2.16", "5.0.9", "5.1.2"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        django-version: ["4.2.16", "5.0.9", "5.1.2", "5.2.3"]
         exclude:
           # Django too new
           - django-version: "5.0.9"
