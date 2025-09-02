@@ -15,30 +15,29 @@ classifiers = [
     "Topic :: Communications :: Email",
     "Framework :: Django",
     "Framework :: Django :: 4.2",
-    "Framework :: Django :: 5.0",
     "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
     "License :: OSI Approved :: BSD License",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 license = "BSD-2-Clause"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
-django = [
-    {version = ">=4.2", python = ">=3.9,<3.13"},
-]
+python = ">=3.9"
+django = ">=4.2"
 notifications-python-client = "^8.1.0"
 
 [tool.poetry.dev-dependencies]
-black = "^23.10.1"
-isort = "^5.12.0"
-flake8 = "^5.0.4"
-pre-commit = "^3.5.0"
-detect-secrets = "1.4.0"
-factory-boy = "^3.2.0"
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.3.0"
+pre-commit = "^4.2.0"
+detect-secrets = "1.5.0"
+factory-boy = "^3.3.3"
 
 [build-system]
 requires = ["poetry-core"]

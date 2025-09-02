@@ -40,7 +40,7 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "test-media")
 MEDIA_URL = "http://media.example.com/media/"
 
-SECRET_KEY = "not needed"
+SECRET_KEY = "not needed"  # pragma: allowlist secret
 
-GOVUK_NOTIFY_API_KEY = "not a real API key"
+GOVUK_NOTIFY_API_KEY = "not a real API key"  # pragma: allowlist secret
 GOVUK_NOTIFY_PLAIN_EMAIL_TEMPLATE_ID = str(uuid.uuid4())

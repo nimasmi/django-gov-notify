@@ -2,6 +2,13 @@
 
 ## 0.6.0 (2024-10-25)
 
+## Unreleased
+
+- Support Python 3.13
+- Support Django 5.2
+- Drop support for Django 5.0
+- Add tox configuration for testing
+
 ### Features
 
 - Drop support for Python 3.8

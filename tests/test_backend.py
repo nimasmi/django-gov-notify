@@ -14,7 +14,9 @@ class EmailBackendTest(TestCase):
     def setUp(self):
         self.backend = NotifyEmailBackend(govuk_notify_api_key="not a real key")
 
-    @override_settings(GOVUK_NOTIFY_API_KEY="fake settings key")
+    @override_settings(
+        GOVUK_NOTIFY_API_KEY="fake settings key"  # pragma: allowlist secret
+    )
     def test_default_key(self, mock_client):
         backend = NotifyEmailBackend()
         self.assertEqual(backend.api_key, "fake settings key")
