@@ -20,13 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        django-version: ["4.2.16", "5.0.9", "5.1.2"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+        django-version: ["4.2", "5.1", "5.2"]
         exclude:
           # Django too new
-          - django-version: "5.0.9"
+          - django-version: "5.1"
             python-version: "3.9"
-          - django-version: "5.1.2"
+          - django-version: "5.2"
             python-version: "3.9"
     steps:
       - uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
         run: |
           poetry config virtualenvs.in-project true
           poetry remove django
-          poetry add django==${{ matrix.django-version }} --python ${{ matrix.python-version }}
+          poetry add "django~=${{ matrix.django-version }}" --python ${{ matrix.python-version }}
           poetry install
           poetry show django
 
@@ -58,13 +58,13 @@ jobs:
     needs: [build, lint]
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        django-version: ["4.2.16", "5.0.9", "5.1.2"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+        django-version: ["4.2", "5.1", "5.2"]
         exclude:
           # Django too new
-          - django-version: "5.0.9"
+          - django-version: "5.1"
             python-version: "3.9"
-          - django-version: "5.1.2"
+          - django-version: "5.2"
             python-version: "3.9"
     steps:
       - uses: actions/checkout@v4
