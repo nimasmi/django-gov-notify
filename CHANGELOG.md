@@ -1,10 +1,9 @@
 # Changelog
 
-## Unreleased
+## 0.7.0 (2026-05-13)
 
 - Drop support for Python 3.9
-- Revise django version support to include Django 5.2
-- Add support for Django 6.0 (requires Python 3.12+)
+- Support Django 5.2 and Django 6.0 (latter requires Python 3.12+)
 - Drop support for Django 5.0 and Django 5.1 (end of life)
 - Upgrade pre-commit hooks
 
