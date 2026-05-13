@@ -3,8 +3,9 @@
 ## Unreleased
 
 - Drop support for Python 3.9
-- Revise django version support to include Django 5.1 and 5.2
-- Drop support for Django 5.0
+- Revise django version support to include Django 5.2
+- Add support for Django 6.0 (requires Python 3.12+)
+- Drop support for Django 5.0 and Django 5.1 (end of life)
 - Upgrade pre-commit hooks
 
 ## 0.6.0 (2024-10-25)
